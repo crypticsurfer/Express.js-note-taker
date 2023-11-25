@@ -34,5 +34,27 @@ index.post("/notes", (req, res) => {
   });
 })
 
+//Delete note from db.json
+index.delete("/notes/:id", (req, res) => {
+  //pull from db.json
+  fs.readFile('./db/db.json', function(err, data) {
+    let noteList = JSON.parse(data);
+    const noteToDelete = noteList.filter((note) => {
+      note.id === req.params.id;
+    })
+    // delete note with req.id from db.json (if exists)
+    if (!noteToDelete) {
+      res.json(console.log(`Error: note with id '${req.params.id}' does not exist. Could not delete note.`));
+    }
+    else {
+      noteList = noteList.filter((note) => {
+        return note.id !== req.params.id;
+      })
+      //push updated db.json
+      fs.writeFileSync("./db/db.json", JSON.stringify(noteList));
+      res.json(console.log(`Note with id '${req.params.id}' deleted.`));
+    }
+  });
+})
 
   module.exports = index
