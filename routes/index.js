@@ -40,10 +40,10 @@ index.delete("/notes/:id", (req, res) => {
   fs.readFile('./db/db.json', function(err, data) {
     let noteList = JSON.parse(data);
     const noteToDelete = noteList.filter((note) => {
-      note.id === req.params.id;
+     return note.id === req.params.id;
     })
     // delete note with req.id from db.json (if exists)
-    if (!noteToDelete) {
+    if (!noteToDelete.length == 0) {
       res.json(console.log(`Error: note with id '${req.params.id}' does not exist. Could not delete note.`));
     }
     else {
