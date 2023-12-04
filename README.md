@@ -27,10 +27,12 @@ An application that can be used to write and save notes. This uses an Express.js
 Railway Link: expressjs-note-taker-production.up.railway.app
 
 Home page
-![Screenshot of website](img/working-site.png)
+![Note taker home](https://github.com/crypticsurfer/Express.js-note-taker/assets/130003418/2c52319e-5b74-4985-826c-3a2d491471d8)
+
 
 After you click on a saved note
-![Screenshot of website](img/saved-note.png)
+![saved notes](https://github.com/crypticsurfer/Express.js-note-taker/assets/130003418/2cc0f1f0-5fea-4441-a0c5-eec043aaff11)
+
 
 </details>
 
